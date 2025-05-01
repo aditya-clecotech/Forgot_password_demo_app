@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ForgotPasswordDemoApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <% if notice %>
+      <p style = "font-size: 1rem; color: green; margin: 5px 0px;"> <%= flash[:notice] %></p>
+    <% elsif alert %>
+      <p style = "font-size: 1rem; color: red; margin: 5px 0px;"> <%= flash[:alert] %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

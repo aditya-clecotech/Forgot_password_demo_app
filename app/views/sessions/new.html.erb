@@ -1,0 +1,13 @@
+<h1>Sign-in</h1>
+
+<%= form_with url: sessions_path , method: :post do |f| %>
+
+   <%= f.label :email_address %>
+   <%= f.email_field :email_address %><br><br>
+   <%= f.label :password %>
+   <%= f.password_field :password %><br><br>
+   <%= f.submit %>
+
+<% end %>
+<br>
+<%= link_to "forgot your password",   password_reset_path %>
