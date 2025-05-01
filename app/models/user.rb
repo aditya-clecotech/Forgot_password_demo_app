@@ -20,7 +20,7 @@ class User < ApplicationRecord
     end
 
    def register_failed_attempts!
-      increment(:failed_attempts)
+      increment!(:failed_attempts)
       if failed_attempts >= LOGIN_ATTEMPTS
          update!(locked_at: Time.current)
       end
