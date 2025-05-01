@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
    def locked_at_expired?
       locked_at.present? && locked_at <= LOCKOUT_TIME.ago
-    end
+   end
 
    def register_failed_attempts!
       increment!(:failed_attempts)
