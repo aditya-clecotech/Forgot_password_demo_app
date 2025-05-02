@@ -12,7 +12,7 @@ class User < ApplicationRecord
    end
 
    def unlock! 
-      update!( failed_attempts: 0, locked_at: nil )
+      update!(failed_attempts: 0, locked_at: nil)
    end
 
    def locked_at_expired?

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       
       # checking that user account is locked or not
 
-      if @user.locked?       
+      if @user.locked? || @user.locked_at_expired?
          if @user.locked_at_expired?
             @user.unlock!
          else         
@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
       if @user&.authenticate(params[:password])
          session[:user_id] = @user.id
+         @user.unlock! if @user.failed_attempts > 0 
          redirect_to root_path, notice: "Logged in successfully"
       else      
          @user.register_failed_attempts!
